@@ -23,10 +23,10 @@ const renderResult = (countriesArr) => {
         
         return `<li> <img src="${country.flags.svg}" height=30px width=50px>
             <h2>${country.name.official}</h2>
-            <h3></h3>
-            <p></p>
-            <h3></h3>
-            <p></p>
+            <h3>Capital:</h3>
+            <p>${country.capital}</p>
+            <h3>Population:</h3>
+            <p>${country.pipulation}</p>
             <h3></h3>
             <p></p>
             </li>
