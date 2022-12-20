@@ -1,2 +1,0 @@
-const t=document.querySelector(".country-list");const e=e=>{t.textContent="";const n=e.map((t=>`\n        <li>${t.name.official}</li>\n        `)).join("");t.insertAdjacentHTML("afterbegin",n)},n=document.querySelector("#search-box");document.querySelector(".country-list");n.addEventListener("input",(t=>{var n;n=t.currentTarget.value,fetch(`https://restcountries.com/v3.1/name/${n}`).then((t=>t.json())).then((t=>e(t))).catch((t=>t))}));
-//# sourceMappingURL=index.d365bb20.js.map
