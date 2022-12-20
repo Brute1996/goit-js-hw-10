@@ -10,14 +10,16 @@ export default function fetchCountries(name) {
 
 
 const renderResult = (countriesArr) => {
+    countryList.textContent = ''
+    
     const markup = countriesArr.map(country => {
         return `
         <li>${country.name.official}</li>
         `
     })
-        // .filter((v,i) => countriesArr.indexOf(v) === i)
-        // .join('')
-    console.log(markup);
+        .join('')
 
     countryList.insertAdjacentHTML('afterbegin', markup)
-    };
+    
+};
+
