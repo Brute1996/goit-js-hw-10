@@ -11,31 +11,35 @@ export default function fetchCountries(name) {
 
 
 const renderResult = (countriesArr) => {
+
     countryList.textContent = ''
+    console.log(countriesArr.length);
+    if (countriesArr.length <= 10) {
+        const markup = countriesArr.map(country => {
+            if (countriesArr.length !== 1) {
+                return `
+                <li> <img src="${country.flags.svg}" height=30px width=50px>
+                <h2>${country.name.official}</h2></li>
+                `
+            }
+            
+            return `<li> <img src="${country.flags.svg}" height=30px width=50px>
+                <h2>${country.name.official}</h2>
+                <h3>Capital:</h3>
+                <p>${country.capital}</p>
+                <h3>Population:</h3>
+                <p>${country.population}</p>
+                <h3>Languages:</h3>
+                <p>${Object.values(country.languages).join(', ')}</p>
+                </li>
+                `
+        })
+            .join('')
 
-    const markup = countriesArr.map(country => {
-        if (countriesArr.length !== 1) {
-            return `
-            <li> <img src="${country.flags.svg}" height=30px width=50px>
-            <h2>${country.name.official}</h2></li>
-            `
-        }
-        
-        return `<li> <img src="${country.flags.svg}" height=30px width=50px>
-            <h2>${country.name.official}</h2>
-            <h3>Capital:</h3>
-            <p>${country.capital}</p>
-            <h3>Population:</h3>
-            <p>${country.population}</p>
-            <h3>Languages:</h3>
-            <p>${country.languages}</p>
-            </li>
-            `
+            countryList.insertAdjacentHTML('afterbegin', markup)
+    }
 
-    })
-        .join('')
-
-    countryList.insertAdjacentHTML('afterbegin', markup)
+   
     
 };
 
