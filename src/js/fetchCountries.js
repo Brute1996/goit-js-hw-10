@@ -26,9 +26,9 @@ const renderResult = (countriesArr) => {
             <h3>Capital:</h3>
             <p>${country.capital}</p>
             <h3>Population:</h3>
-            <p>${country.pipulation}</p>
-            <h3></h3>
-            <p></p>
+            <p>${country.population}</p>
+            <h3>Languages:</h3>
+            <p>${country.languages}</p>
             </li>
             `
 
