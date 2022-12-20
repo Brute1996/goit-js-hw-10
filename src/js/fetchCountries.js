@@ -13,15 +13,19 @@ export default function fetchCountries(name) {
 const renderResult = (countriesArr) => {
     countryList.textContent = ''
 
-    const markup = countriesArr.map(country => {
-        return `
-        <li> <img src="${country.flags.svg}" height=30px width=50px>
-        ${country.name.official}</li>
-        `
-    })
-        .join('')
+    if (countriesArr.length !== 1) {
+        const markupList = countriesArr.map(country => {
+            return `
+            <li> <img src="${country.flags.svg}" height=30px width=50px>
+            ${country.name.official}</li>
+            `
+        })
+            .join('')
+        
+        countryList.insertAdjacentHTML('afterbegin', markupList)
+    }
 
-    countryList.insertAdjacentHTML('afterbegin', markup)
+    
     
 };
 
