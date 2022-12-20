@@ -1,11 +1,20 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 const countryList = document.querySelector('.country-list')
 
 export default function fetchCountries(name) {
     const URL = `https://restcountries.com/v3.1/name/${name}?fields=name,capital,population,flags,languages
 `;
     return fetch(URL)
-        .then(response => response.json())
-        .then(countries => renderResult(countries))
+        .then(response => {
+            if (response.ok) {
+                return response.json()
+            }
+            Notify.failure('"Oops, there is no country with that name"');
+        })
+        .then(countries => {
+            renderResult(countries)
+        })
         .catch(error => error)
 }
 
@@ -13,7 +22,7 @@ export default function fetchCountries(name) {
 const renderResult = (countriesArr) => {
 
     countryList.textContent = ''
-    console.log(countriesArr.length);
+
     if (countriesArr.length <= 10) {
         const markup = countriesArr.map(country => {
             if (countriesArr.length !== 1) {
@@ -37,7 +46,11 @@ const renderResult = (countriesArr) => {
             .join('')
 
             countryList.insertAdjacentHTML('afterbegin', markup)
+    } else{
+        Notify.info("Too many matches found. Please enter a more specific name.");
     }
+
+    
 
    
     
