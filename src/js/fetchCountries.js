@@ -17,10 +17,20 @@ const renderResult = (countriesArr) => {
         if (countriesArr.length !== 1) {
             return `
             <li> <img src="${country.flags.svg}" height=30px width=50px>
-            ${country.name.official}</li>
+            <h2>${country.name.official}</h2></li>
             `
         }
-        return ``
+        
+        return `<li> <img src="${country.flags.svg}" height=30px width=50px>
+            <h2>${country.name.official}</h2>
+            <h3></h3>
+            <p></p>
+            <h3></h3>
+            <p></p>
+            <h3></h3>
+            <p></p>
+            </li>
+            `
 
     })
         .join('')
