@@ -1,11 +1,13 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const countryList = document.querySelector('.country-list')
+const searchBox = document.querySelector('#search-box')
 
 export default function fetchCountries(name) {
     const URL = `https://restcountries.com/v3.1/name/${name}?fields=name,capital,population,flags,languages
 `;
-    return fetch(URL)
+    if (searchBox.value !== "") {
+        return fetch(URL)
         .then(response => {
             if (response.ok) {
                 return response.json()
@@ -16,6 +18,8 @@ export default function fetchCountries(name) {
             renderResult(countries)
         })
         .catch(error => error)
+    }
+    
 }
 
 

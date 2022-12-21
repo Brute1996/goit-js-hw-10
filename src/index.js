@@ -8,9 +8,7 @@ const DEBOUNCE_DELAY = 300;
 const searchBox = document.querySelector('#search-box')
 
 searchBox.addEventListener('input', debounce(() => {
-    if (searchBox.value !== '') {
         fetchCountries(searchBox.value)
-    }
     
 }, DEBOUNCE_DELAY))
 
