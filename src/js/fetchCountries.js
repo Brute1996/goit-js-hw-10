@@ -30,9 +30,10 @@ const renderResult = (countriesArr) => {
                 <li> <img src="${country.flags.svg}" height=30px width=50px>
                 <h2>${country.name.official}</h2></li>
                 `
+                
             }
             
-            return `<li> <img src="${country.flags.svg}" height=30px width=50px>
+            return `<li> <img src="${country.flags.svg}" height=50px width=100px>
                 <h2>${country.name.official}</h2>
                 <h3>Capital:</h3>
                 <p>${country.capital}</p>
