@@ -19,7 +19,7 @@ export default function fetchCountries(name) {
         })
         .catch(error => error)
     }
-    
+    countryList.textContent = '';
 }
 
 
