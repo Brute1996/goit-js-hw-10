@@ -6,6 +6,8 @@ const searchBox = document.querySelector('#search-box')
 export default function fetchCountries(name) {
     const URL = `https://restcountries.com/v3.1/name/${name}?fields=name,capital,population,flags,languages
 `;
+    countryList.textContent = '';
+    
     if (searchBox.value !== "") {
         return fetch(URL)
         .then(response => {
@@ -19,13 +21,11 @@ export default function fetchCountries(name) {
         })
         .catch(error => error)
     }
-    countryList.textContent = '';
+ 
 }
 
 
 const renderResult = (countriesArr) => {
-
-    countryList.textContent = ''
 
     if (countriesArr.length <= 10) {
         const markup = countriesArr.map(country => {
